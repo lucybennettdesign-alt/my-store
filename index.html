@@ -198,7 +198,7 @@
     </div>
   </section>
 
-  <!-- 5. 联系与留言表单区（已集成 FormSubmit 真正发送功能） -->
+  <!-- 5. 联系与留言表单区 -->
   <section id="contact" class="py-20 max-w-7xl mx-auto px-6">
     <div class="bg-white rounded-3xl p-8 md:p-12 border border-stone-200 shadow-sm">
       <div class="grid md:grid-cols-2 gap-12">
@@ -227,7 +227,7 @@
               <i class="fa-solid fa-envelope text-brand-600 mt-1"></i>
               <div>
                 <span class="font-bold block"><span class="lang-en">Email:</span><span class="lang-zh">联系邮箱：</span></span>
-                <a href="mailto:serive@huanshine.com" class="text-stone-500 hover:text-brand-600">serive@huanshine.com</a>
+                <a href="mailto:service@huanshine.com" class="text-stone-500 hover:text-brand-600">service@huanshine.com</a>
               </div>
             </div>
             <div class="flex items-start gap-3">
@@ -243,13 +243,10 @@
           </div>
         </div>
 
-        <!-- FormSubmit 表单入口 -->
-        <form action="https://formsubmit.co/serive@huanshine.com" method="POST" class="space-y-4">
-          <!-- 邮件标题配置 -->
+        <!-- FormSubmit 表单 -->
+        <form action="https://formsubmit.co/service@huanshine.com" method="POST" class="space-y-4">
           <input type="hidden" name="_subject" value="【焕醒官网】收到新的客户咨询留言！">
-          <!-- 邮件排版模版（表格） -->
           <input type="hidden" name="_template" value="table">
-          <!-- 关闭机器验证码干扰，提高提交流畅度 -->
           <input type="hidden" name="_captcha" value="false">
 
           <input type="text" name="name" placeholder="Your Name / 姓名" required class="w-full px-4 py-3 rounded-xl bg-warm-50 border border-stone-300 text-stone-800 placeholder-stone-400 focus:outline-none focus:border-brand-600 text-sm">
