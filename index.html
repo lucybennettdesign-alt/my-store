@@ -1,35 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Minimal Store - Premium Earbuds</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>公司名称 - 创新解决方案与专业服务领航者</title>
+  <meta name="description" content="致力于为您提供业界领先的专业产品与数字化解决方案。">
+  <!-- 引入 Tailwind CSS 库 -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- 引入 PayPal SDK（将 YOUR_PAYPAL_CLIENT_ID 替换为你的真实 ID） -->
-  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID&currency=USD"></script>
+  <!-- 引入 FontAwesome 图标库 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
-  <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden">
-    <img class="w-full h-64 object-cover" src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=600&q=80" alt="Product">
-    <div class="p-6">
-      <h1 class="text-2xl font-bold text-gray-800">Wireless Noise-Canceling Earbuds</h1>
-      <p class="text-gray-500 text-sm mt-1">High-fidelity sound, 40h battery life.</p>
-      <div class="mt-4 flex items-baseline justify-between">
-        <span class="text-3xl font-extrabold text-indigo-600">$29.99</span>
-        <span class="text-gray-400 line-through text-sm">$49.99</span>
-      </div>
-      <div class="mt-6" id="paypal-button-container"></div>
+<body class="bg-gray-900 text-gray-100 font-sans antialiased">
+
+  <!-- 1. 顶部导航栏 -->
+  <header class="fixed top-0 left-0 w-full bg-gray-900/90 backdrop-blur-md border-b border-gray-800 z-50 transition-all">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+      <!-- Logo 区域 -->
+      <a href="#" class="text-2xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-500">
+        WEISHIBO <span class="text-xs text-gray-400 font-normal">| 官方网站</span>
+      </a>
+      <!-- 导航链接 -->
+      <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-300">
+        <a href="#home" class="hover:text-blue-400 transition-colors">首页</a>
+        <a href="#solutions" class="hover:text-blue-400 transition-colors">核心业务</a>
+        <a href="#advantages" class="hover:text-blue-400 transition-colors">企业优势</a>
+        <a href="#about" class="hover:text-blue-400 transition-colors">关于我们</a>
+        <a href="#contact" class="hover:text-blue-400 transition-colors">联系合作</a>
+      </nav>
+      <!-- 行动按钮 -->
+      <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium rounded-full text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-lg shadow-blue-500/25">
+        在线咨询
+      </a>
     </div>
-  </div>
-  <script>
-    paypal.Buttons({
-      createOrder: (data, actions) => actions.order.create({
-        purchase_units: [{ amount: { value: '29.99' } }]
-      }),
-      onApprove: (data, actions) => actions.order.capture().then(details => {
-        alert('Payment successful! Transaction ID: ' + details.id);
-        window.location.href = "/success.html";
-      })
-    }).render('#paypal-button-container');
-  </script>
+  </header>
+
+  <!-- 2. Hero 核心大屏 (Banner) -->
+  <section id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900">
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+      <span class="inline-block py-1 px-3 rounded-full text-xs font-semibold bg-blue-900/50 text-blue-400 border border-blue-800 mb-6">
+        🚀 探索全方位高效解决方案
+      </span>
+      <h1 class="text-4xl md:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+        以技术驱动未来 <br class="hidden sm:inline">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
+          打造卓越的商业与产品体验
+        </span>
+      </h1>
+      <p class="max-w-2xl mx-auto text-gray-400 text-base md:text-lg mb-10 leading-relaxed">
+        我们专注于为您提供高品质、全立体的产品服务与技术支持，助力企业快速实现数字化升级与业务增长。
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="#solutions" class="px-8 py-3.5 rounded-full font-medium text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/30">
+          探索产品与服务
+        </a>
+        <a href="#contact" class="px-8 py-3.5 rounded-full font-medium text-gray-300 bg-gray-800 hover:bg-gray-700 border border-gray-700 transition-all">
+          联系业务顾问
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 数据实力展示 (Counter/Stats) -->
+  <section class="py-12 bg-gray-800/50 border-y border-gray-800">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div>
+        <div class="text-3xl md:text-4xl font-extrabold text-blue-400 mb-2">10+</div>
+        <div class="text-xs md:text-sm text-gray-400">年行业深耕经验</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-extrabold text-blue-400 mb-2">500+</div>
+        <div class="text-xs md:text-sm text-gray-400">服务企业与合作伙伴</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-extrabold text-blue-400 mb-2">99%</div>
+        <div class="text-xs md:text-sm text-gray-400">客户好评与满意度</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-extrabold text-blue-400 mb-2">24/7</div>
+        <div class="text-xs md:text-sm text-gray-400">全天候技术服务响应</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 核心业务板块 (Solutions) -->
+  <section id="solutions" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-white mb-4">核心业务领域</h2>
+      <p class="text-gray-400 max-w-xl mx-auto">针对不同场景与需求，提供多样化、高可靠性的专业产品与服务体系</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <!-- 卡片 1 -->
+      <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all hover:-translate-y-1">
+        <div class="w-12 h-12 bg-blue-600/20 text-blue-400 rounded-xl flex items-center justify-center text-xl mb-6">
+          <i class="fa-solid fa-cube"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">高端产品设计</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+          融合前沿审美与功能实用性，从概念到落地，打造具有行业竞争力的特色产品。
+        </p>
+        <a href="#contact" class="text-blue-400 text-sm font-medium hover:text-blue-300 inline-flex items-center gap-1">
+          了解详情 <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- 卡片 2 -->
+      <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all hover:-translate-y-1">
+        <div class="w-12 h-12 bg-indigo-600/20 text-indigo-400 rounded-xl flex items-center justify-center text-xl mb-6">
+          <i class="fa-solid fa-gear"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">系统定制与开发</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+          全栈技术打造高效稳定的业务系统，提供全生命周期的维护与技术保障。
+        </p>
+        <a href="#contact" class="text-blue-400 text-sm font-medium hover:text-blue-300 inline-flex items-center gap-1">
+          了解详情 <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <!-- 卡片 3 -->
+      <div class="bg-gray-800/60 p-8 rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all hover:-translate-y-1">
+        <div class="w-12 h-12 bg-purple-600/20 text-purple-400 rounded-xl flex items-center justify-center text-xl mb-6">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-3">企业数字化咨询</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+          深入分析企业业务流程，量身打造数字化转型路线图，提升运营与沟通效率。
+        </p>
+        <a href="#contact" class="text-blue-400 text-sm font-medium hover:text-blue-300 inline-flex items-center gap-1">
+          了解详情 <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 核心优势 (Advantages) -->
+  <section id="advantages" class="py-20 bg-gray-800/30 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="text-blue-400 text-sm font-semibold tracking-wider">WHY CHOOSE US</span>
+          <h2 class="text-3xl font-bold text-white mt-2 mb-6">为什么越来越多的客户选择与我们合作？</h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold">✓</div>
+              <div>
+                <h4 class="text-lg font-semibold text-white">专业团队经验丰富</h4>
+                <p class="text-gray-400 text-sm mt-1">核心骨干均拥有多年一线行业背景，精准把控业务细节与交付质量。</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold">✓</div>
+              <div>
+                <h4 class="text-lg font-semibold text-white">严谨的标准与交付控制</h4>
+                <p class="text-gray-400 text-sm mt-1">建立规范化的研发与项目落地标准，按时高质保障项目交付。</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0 font-bold">✓</div>
+              <div>
+                <h4 class="text-lg font-semibold text-white">持久的技术支持与售后</h4>
+                <p class="text-gray-400 text-sm mt-1">项目上线非终点，我们提供全天候的后续维护支撑，与客户共同成长。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 侧边视觉设计框 -->
+        <div class="bg-gradient-to-br from-blue-900/40 to-indigo-900/20 p-8 rounded-3xl border border-blue-500/20 relative">
+          <div class="space-y-4">
+            <div class="p-4 bg-gray-900/80 rounded-xl border border-gray-700/50">
+              <div class="text-xs text-blue-400 mb-1">持续创新</div>
+              <div class="text-sm font-medium text-gray-200">深度融合前沿技术，赋能品牌商业增长</div>
+            </div>
+            <div class="p-4 bg-gray-900/80 rounded-xl border border-gray-700/50">
+              <div class="text-xs text-indigo-400 mb-1">高效沟通</div>
+              <div class="text-sm font-medium text-gray-200">1v1 专属项目顾问，快速响应客户需求</div>
+            </div>
+            <div class="p-4 bg-gray-900/80 rounded-xl border border-gray-700/50">
+              <div class="text-xs text-purple-400 mb-1">品质保障</div>
+              <div class="text-sm font-medium text-gray-200">多维度严格测试，提供稳定靠谱的交付产出</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 联系我们 (Contact) -->
+  <section id="contact" class="py-24 max-w-7xl mx-auto px-6">
+    <div class="bg-gradient-to-r from-blue-900/50 via-gray-800 to-indigo-900/50 rounded-3xl p-8 md:p-12 border border-gray-700/50">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold text-white mb-4">联系我们，开启合作</h2>
+          <p class="text-gray-400 text-sm mb-8">如果您有业务需求或合作意向，欢迎通过以下方式随时与我们取得联系。</p>
+          <div class="space-y-4 text-sm text-gray-300">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-envelope text-blue-400 w-5"></i>
+              <span>联系邮箱：contact@yourcompany.com</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-phone text-blue-400 w-5"></i>
+              <span>咨询电话：+86 10-12345678</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-location-dot text-blue-400 w-5"></i>
+              <span>公司地址：北京市/上海市/深圳市 科技园核心区</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 极简留言框 -->
+        <form onsubmit="event.preventDefault(); alert('信息已提交，我们会尽快联系您！');" class="space-y-4">
+          <input type="text" placeholder="您的姓名 / 公司名称" required class="w-full px-4 py-3 rounded-xl bg-gray-900/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 text-sm">
+          <input type="email" placeholder="您的联系邮箱或电话" required class="w-full px-4 py-3 rounded-xl bg-gray-900/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 text-sm">
+          <textarea rows="3" placeholder="请简要说明您的需求或问题..." class="w-full px-4 py-3 rounded-xl bg-gray-900/80 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 text-sm"></textarea>
+          <button type="submit" class="w-full py-3.5 rounded-xl font-medium text-white bg-blue-600 hover:bg-blue-500 transition-all shadow-lg shadow-blue-600/30 text-sm">
+            提交咨询请求
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 页脚 (Footer) -->
+  <footer class="bg-gray-950 border-t border-gray-800/80 py-8 text-center text-xs text-gray-500">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>© 2026 公司名称 All Rights Reserved.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-gray-400">隐私政策</a>
+        <a href="#" class="hover:text-gray-400">服务条款</a>
+        <a href="https://beian.miit.gov.cn/" target="_blank" class="hover:text-gray-400">粤ICP备XXXXXX号</a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
